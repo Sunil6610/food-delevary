@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie | Animated Food Delivery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif
+        }
+
+        body {
+            background: #fff;
+            color: #222;
+            overflow-x: hidden
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, .08);
+            z-index: 1000;
+            animation: slideDown 1s ease;
+        }
+
+        header h2 {
+            color: #ff4d4d;
+            font-weight: 700
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            position: relative
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: #ff4d4d;
+            transition: .4s
+        }
+
+        nav a:hover::after {
+            width: 100%
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 120px 8% 50px
+        }
+
+        .hero-text {
+            animation: fadeLeft 1.2s ease
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            line-height: 1.2
+        }
+
+        .hero-text span {
+            color: #ff4d4d
+        }
+
+        .hero-text p {
+            margin: 20px 0;
+            color: #555
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #ff4d4d;
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(255, 77, 77, .4);
+            transition: .4s
+        }
+
+        .btn:hover {
+            transform: translateY(-5px)
+        }
+
+        .hero-img {
+            text-align: center;
+            animation: float 3s ease-in-out infinite
+        }
+
+        .hero-img img {
+            width: 420px;
+            max-width: 100%
+        }
+
+        section {
+            padding: 80px 8%
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 50px
+        }
+
+        .title h2 {
+            font-size: 2.5rem
+        }
+
+        .title span {
+            color: #ff4d4d
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px
+        }
+
+        .food-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+            transition: .4s;
+            animation: zoomIn 1s ease
+        }
+
+        .food-card:hover {
+            transform: translateY(-15px)
+        }
+
+        .food-card img {
+            width: 160px;
+            margin-bottom: 15px
+        }
+
+        .food-card h3 {
+            margin-bottom: 10px
+        }
+
+        .food-card p {
+            color: #777;
+            font-size: .9rem
+        }
+
+        .login-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center
+        }
+
+        .login-section img {
+            width: 350px;
+            animation: fadeRight 1.2s ease
+        }
+
+        footer {
+            background: #111;
+            color: #aaa;
+            padding: 40px 8%;
+            text-align: center
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1
+            }
+        }
+
+        @keyframes fadeLeft {
+            from {
+                transform: translateX(-100px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1
+            }
+        }
+
+        @keyframes fadeRight {
+            from {
+                transform: translateX(100px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(.7);
+                opacity: 0
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-20px)
+            }
+        }
+
+        @media(max-width:900px) {
+
+            .hero,
+            .app {
+                grid-template-columns: 1fr;
+                text-align: center
+            }
+
+            header {
+                padding: 15px 5%
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>Foodie</h2>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#app">App</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Fastest <span>Food Delivery</span><br>In Your City</h1>
+            <p>Order delicious food anytime, anywhere and get it delivered hot & fresh.</p>
+            <a href="#menu" class="btn">Order Now</a>
+        </div>
+        <div class="hero-img">
+            <img src="c:\Users\Asus\Desktop\git\food delevery\menu (3).png" alt="Food">
+        </div>
+    </section>
+
+    <section id="menu">
+        <div class="title">
+            <h2>Popular <span>Dishes</span></h2>
+        </div>
+        <div class="food-grid">
+            <div class="food-card">
+                <img src="c:\Users\Asus\Desktop\git\food delevery\hamburger.png">
+                <h3>Burger</h3>
+                <p>Cheesy & tasty burger</p>
+            </div>
+            <div class="food-card">
+                <img src="c:\Users\Asus\Desktop\git\food delevery\pizza.png">
+                <h3>Pizza</h3>
+                <p>Hot & spicy pizza</p>
+            </div>
+            <div class="food-card">
+                <img src="c:\Users\Asus\Desktop\git\food delevery\noodles.png">
+                <h3>Noodles</h3>
+                <p>Chinese special noodles</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="login-section">
+        <div>
+            <h2>Ordering <span>Food</span></h2>
+            <p>first login to order food.</p>
+            <a href="#" class="btn">Login Now</a>
+        </div>
+        <img src="c:\Users\Asus\Desktop\git\food delevery\delivery-man.png">
+    </section>
+
+    <footer>
+        <p>© 2025 Foodie | Animated Food Delivery Website</p>
+    </footer>
+
+</body>
+
+</html>
